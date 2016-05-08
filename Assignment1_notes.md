@@ -7,16 +7,16 @@ hadoop fsck /folder -files -blocks -locations -racks
 
 2. Find the location of Namenode local dir and look at the file layout structure inside, calculate the frequency of editlog roll{new edit log being create} Submit the screenshot of the command and its output.
 
-the location of the NameNode namefs.namedefault.name/name
-NameNode metadata storage namedfs.name.dir/name
+the location of the NameNode: namefs.namedefault.name/name
+NameNode metadata storage: namedfs.name.dir/name
 
-In file hdfs-site.xml
+In file hdfs-site.xml we see the property: 
 cd /hadoop/hdfs/namenode/current
 
-ls -lrt
-stat c%Y
 
-Problem encountered: I have to change property: hdfs.namenode.acls.enabled to true.
+
+-Problem encountered: 
+I have to change property: hdfs.namenode.acls.enabled to true.
 
 vi /etc/hadoop/2.4.0.0-169/0/hdfs-site.xml
 
@@ -34,15 +34,17 @@ hdfs dfs -setfacl -m user:userA:rwx /assignment1/asign1.txt
 
 it still returns: Support for ACLs has been disabled by setting dfs.namenode.acls.enabled to false
 
+-Solution
+addded property from Ambari on browser
 
+
+
+
+Some useful Commands
 
 hdfs dfs -mkdir /assignment1
 hdfs dfs -chown userA /assignment1/asign1.txt
 
-[root@master1 ~]# cat /etc/gr
-group      group-     grub.conf
-[root@master1 ~]# cat /etc/gr
-group      group-     grub.conf
 [root@master1 ~]# cat /etc/group | grep desp
 desp:x:1003:
 [root@master1 ~]# usermod -G desp userA      (adds userA to group desp)
