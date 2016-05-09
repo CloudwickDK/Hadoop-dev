@@ -140,3 +140,5 @@ hadoop fs -getfattr -R -n user.myAttr /dir
 Exit Code:
 
 Returns 0 on success and non-zero on error.
+
+The solution of this assignment is on gitlab.
