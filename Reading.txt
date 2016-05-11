@@ -1,0 +1,13 @@
+Reading
+
+1.Inode Data structure
+2.LRU(Least Recently Used) algorithm
+3.WAL(Write Ahead Logging)
+4.Series of events that happen when a nameNode restarts
+
+1.
+2. LRU(Least Recently Used) algorithm
+
+https://www.youtube.com/watch?v=4wVp97-uqr0
+
+3. 
