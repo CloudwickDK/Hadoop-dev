@@ -10,4 +10,34 @@ Reading
 
 https://www.youtube.com/watch?v=4wVp97-uqr0
 
-3. 
+3. WAL(Write Ahead Logging)
+
+https://www.sqlite.org/wal.html
+
+The WAL approach inverts this. The original content is preserved in the database file and the changes are appended into a separate WAL file. 
+A COMMIT occurs when a special record indicating a commit is appended to the WAL. Thus a COMMIT can happen without ever writing to the original database, 
+which allows readers to continue operating from the original unaltered database while changes are simultaneously being committed into the WAL.
+Multiple transactions can be appended to the end of a single WAL file.
+
+Checkpointing
+Of course, one wants to eventually transfer all the transactions that are appended in the WAL file back into the original database.
+Moving the WAL file transactions back into the database is called a "checkpoint".
+Another way to think about the difference between rollback and write-ahead log is that in the rollback-journal approach, 
+there are two primitive operations, reading and writing, whereas with a write-ahead log there are now three primitive operations: 
+reading, writing, and checkpointing.
+
+4.Series of events that happen when a nameNode restarts
+
+http://hortonworks.com/blog/understanding-namenode-startup-operations-in-hdfs/
+
+During startup, the NameNode must complete certain actions before it can serve client requests:
+
+    Read file system metadata from the fsimage file.
+    Read edit logs and apply logged operations to the file system metadata.
+    Write a new checkpoint (a new fsimage consisting of the prior fsimage plus the application of all operations from the edit logs).
+    Remain in safe mode until a sufficient number of blocks have been reported by datanodes.
+
+When writing a new checkpoint, the NameNode writes to every one of the redundant locations configured for storing fsimage.  
+Even though these writes occur in parallel, the NameNode blocks until the writes have completed to every location before it allows client connections.  
+This means a single slow disk inhibits overall startup performance.
+
