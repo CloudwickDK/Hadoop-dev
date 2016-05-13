@@ -1,0 +1,7 @@
+equals, compareTO are methods of Writable interface?
+
+Writable methods:
+-readFields()
+-write..()
+
+Avro files
