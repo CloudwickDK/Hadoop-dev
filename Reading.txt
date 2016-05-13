@@ -5,7 +5,7 @@ Reading
 3.WAL(Write Ahead Logging)
 4.Series of events that happen when a nameNode restarts
 
-1. Inode Data structure
+1. Inode Data structure 
 
 https://en.wikipedia.org/wiki/Inode_pointer_structure
 
