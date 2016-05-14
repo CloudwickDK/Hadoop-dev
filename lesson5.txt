@@ -1,9 +1,8 @@
 Previous HM: count city/state combinations
 
-If  we need to total p some values
-So we can add a module in the mapper called COunters which just writes to the console
+If  we need to total up some values, we can add a module in the mapper called Counters which just writes to the console
 when we generate apache logs
 add a module for the counters in the map function
 (choose a couple of response coders to print)
 
-to run a job when y are not sure where the libraries are, use a fat jar wich takes its own libraries with it.
+-to run a job when y are not sure where the libraries are, use a fat jar which takes its own libraries with it.
