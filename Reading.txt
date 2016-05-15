@@ -9,6 +9,9 @@ Reading
 
 https://en.wikipedia.org/wiki/Inode_pointer_structure
 
+http://www.aosabook.org/en/hdfs.html  : chapter 8.2
+
+
 2. LRU(Least Recently Used) algorithm
 
 https://www.youtube.com/watch?v=4wVp97-uqr0
