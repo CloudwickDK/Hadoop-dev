@@ -1,0 +1,3 @@
+HA:
+When you want to add a property to hdfs and restart, bring ANN down first and then SNN.
+That way the SNN will become active when we bring ANN down and then the NN1 will become again ANN when we bring NN2 which is now active.

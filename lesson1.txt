@@ -1,0 +1,74 @@
+HDFS in Depth slide
+
+-Inode
+
+-Ntwork Topology
+https://www.youtube.com/watch?v=zYpHKDWL1Mo
+the file is a ist of:
+ip-adrress rack
+192...     01
+
+Read Path  p9/14:
+
+The file has 4 blocks eah replicated in 3 nodes 
+When a client wants to open foo.txt, the namenode opens a data input-stream
+which contains the locations of the blocks ordered by the proximity of the replicas locations: block1, hosts:...
+
+As soon as the client gets the response 2:data from the datanode of block1, it will ask for the 2nd block from the open stream the namenode.
+
+Authentication checks:
+
+is the user esamer able to read the file? yes because owner of file is esamer
+Also checks group and Do i have the latest block location?
+THe namenode checks the locations of blocks with network topology and also sorts based on which datanodes are less occupied.
+Acl: access control list is on the metadata on namenode
+From hdfs we can enable acl and manage users and group permissions
+
+Write Path
+
+Client asks for permission from Namenode
+Then it checks if the file already exists in the specified and stops if yes.
+IF no it can ask a datanode (the datanode can have hadoop client libraries and can also act as client) for writing the file.
+Then the first datanode must write the block to the second datanode and the second to the third.
+Then an acknoledgemt is send fom the third to the second to the the first an back to client.
+At the end the data queue should be empty and the ack queue also complete.
+
+Failure when Writing
+
+If there is a failure the data quue does not delete the num of the datanode that the failure ocured.
+It sends a message to the namenode that there is a corupt file there and that it should be deleted at some point.
+Then we try from start with a ne pipeline: ex. pipeline 2 so that we might get a successful write.
+When we finish sucessfully the client sends close foo.txt to namenode.
+
+If we write a file and another user wants to read it what will happen?
+Will he able to fread the file?
+
+Only the blocks that are written and an ack is send back for them, can be read by the second user because the namenode has the location for these datanodes.
+
+For every block the namenode gives 3 datanodes. to the client.
+The client has ack and data queue.
+
+If the min replication factor is 1 the write will still be successful if ine block write is successful.
+
+
+FileSystem Metadata: p 7/24
+
+Namenode has a Write Ahead Log service and uses edit file for that.
+The edits log which has modifictions of files is merged to fsimage periodically.
+
+HDFS HA
+
+The datanodes send heartbeat to both namenodes.
+The edit file is written in a shared location(nfs, quorom nodes)
+Zookeeper manages which namenode is active. if the active is down the stanby becomes active.
+Zookeper kills namenode if it has written somth  only on one journal and not on all 3.
+
+Note: Combination of HA and Federation
+We can have 2 active namnodes and each can have a stanby.
+
+
+
+
+
+
+
