@@ -4,7 +4,8 @@ HDFS in Depth slide
 
 -Ntwork Topology
 https://www.youtube.com/watch?v=zYpHKDWL1Mo
-the file is a ist of:
+
+the file:  is a ist of:
 ip-adrress rack
 192...     01
 
