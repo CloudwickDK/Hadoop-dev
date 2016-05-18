@@ -3,7 +3,7 @@ Map-reduce
 values Writable interface
 keys - WitableCOmparable
 
-user decides the file inputFormat not the number of mappers. Onnly if he overwrites to 1. 
+user decides the file inputFormat not the number of mappers. Onnly if he overwrites and makes it to 1. 
 some operations can use a combiners to reduce time. 
 For example AverageReducer 
 
@@ -17,6 +17,7 @@ Sefault reducer 1
 maven: dependency management install in eclipse or intellij
 oozie is used for storing jars and dependencies
 jenkins: is updated on svn
+
 
 
 

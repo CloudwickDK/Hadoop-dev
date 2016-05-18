@@ -3,3 +3,36 @@ Total Sort Motivation
 RandomSampler is more used
 
 Composite Join
+
+Application Master: can launch by itself a task
+
+
+AWS solution architect
+
+///////////////
+
+SQOOP
+
+jdbc:java database driver connection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
