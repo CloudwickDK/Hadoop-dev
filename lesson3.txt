@@ -8,11 +8,17 @@ some operations can use a combiners to reduce time.
 For example AverageReducer 
 
 Every maps' output is in disk
+When a mapper has finished and another is launched and the output is bigger than the buffer, it is written on disk.
+otherwise, it is send to the reducer because more than 5% of mapers have finished.
 
-Driver is an orchestrTION BETWWEEN 	Tokenize
-Sefault reducer 1
+
+Driver is an orchestrTION BETWWEEN mapper and Reducer.
+
+default reducer 1. Set it with property:
 -Dmapred.reduce.tasks=10
--
+
+Context object is used to write the data on hdfs
+
 
 maven: dependency management install in eclipse or intellij
 oozie is used for storing jars and dependencies
