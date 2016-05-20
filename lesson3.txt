@@ -19,6 +19,14 @@ default reducer 1. Set it with property:
 
 Context object is used to write the data on hdfs
 
+The priority for the configurations depends on where they were configured:
+1. default hadoop configurations
+2. overwite provided configurations on the class path
+3. passing the parameters dynamically at run time with -d numofReducers
+4. in the code of Driver Class
+
+We can send multiple mappers to single reducer.
+
 
 maven: dependency management install in eclipse or intellij
 oozie is used for storing jars and dependencies
