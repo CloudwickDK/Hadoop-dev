@@ -27,6 +27,9 @@ The priority for the configurations depends on where they were configured:
 
 We can send multiple mappers to single reducer.
 
+data integrity
+data profiling: instead of using a schema in hive we just create properties in map-reduce.
+
 
 maven: dependency management install in eclipse or intellij
 oozie is used for storing jars and dependencies
