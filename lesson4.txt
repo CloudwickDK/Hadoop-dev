@@ -1,7 +1,13 @@
-equals, compareTO are methods of Writable interface?
+MapReduce IO
+
+Seialisation:
+RPC
+
+hashcode, equals, compareTO are methods of WritableComparable interface?
 
 Writable methods:
 -readFields()
 -write..()
 
 Avro files
+
