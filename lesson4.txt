@@ -9,5 +9,17 @@ Writable methods:
 -readFields()
 -write..()
 
-Avro files
+Sequence files contain binary-encoded key-value pairs and metadata about them
+It can be uncompressed, record compressed or block compressed (when data reaches the block size it is compresses and written to the file)
+
+Map File:
+A sorted SequenceFIle with an index of key and values implemented as a Hashmap
+
+p24/92: Avro files,
+compatible with Hadoop via AvroMapper ancd Avro Reducer:
+Alternative to Sequence files
+Avro is a data serialisation and RPC(Remote Procedure Call) library
+The schema is included in the file
+They use synchronisation Mappers
+
 
