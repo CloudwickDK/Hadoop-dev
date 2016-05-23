@@ -1,0 +1,9 @@
+Hive 
+
+is a batch processing system
+it is an interpreter from sql to mapreduce
+
+Hive (Data Management)
+
+Remove a Database
+hive> DROP database nameofDatabase
