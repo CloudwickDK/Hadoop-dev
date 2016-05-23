@@ -9,3 +9,4 @@ Remove a Database
 hive> DROP database nameofDatabase
 
 to be continued
+test
