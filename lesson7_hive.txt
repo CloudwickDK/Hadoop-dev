@@ -8,5 +8,8 @@ Hive (Data Management)
 Remove a Database
 hive> DROP database nameofDatabase
 
-to be continued
-test
+
+Hive Part 2
+
+Pig
+wrapper of mapreduce
