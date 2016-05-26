@@ -13,3 +13,4 @@ Hive Part 2
 
 Pig
 wrapper of mapreduce
+http://hortonworks.com/apache/pig/
