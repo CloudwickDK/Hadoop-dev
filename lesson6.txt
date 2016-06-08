@@ -3,20 +3,70 @@ Total Sort Motivation
 RandomSampler is more used
 
 Composite Join
+slide: SQOOP
+
 
 Application Master: can launch by itself a task
 
-
 AWS solution architect
 
-///////////////
 
-SQOOP
+SQOOP:
+talks btween RDBM and hdfs and pulls 
 
 jdbc:java database driver connection
+use to execute sql queries to database.
+
+Exchanges data between RDBMS and hdfs
+ The driver is a gateway that interacts with an attribute such as database to transfer data to/from hdfs.
+ 
+Sqoop uses map-reduce so it parallelizes the job,
+you can compress or change data format into avro for example
+
+p. 3/37
+
+The sqoop client takes a schema for the table it wants to copy to hdfs.
+A java class is created with getters and setters of the attributes.
+The mappers take a part of the data 
+The jdbc jar executes a query which uses the schema of the class to read the database table from and to specific rows of the table.
+(Relational databases have varchar which java doenot understand).
+That is why any var char kind of types will have to be converted to string for example(mapreduce does that).
+decimal numeric -float etc.
+bigInt-log
+
+p.4/37
+sqoop import: you can import multiple rows in a single statement by specifying the num of records.
+export: create java class push the data to database
+
+You can specify parameters usng the -d option 
+and provide your jdbc connection string:
+--connect jdbc:postgresql://psql.cw.com/database \
 
 
+create a temp table and 
+It SEQUENTIALLY not parallel imports all tables
 
+
+//////////////////////////////////////
+kerberos:
+the TGT is encrypted with the user's key
+TGT contains the use's name, the KDC name, the ip of the client
+and a new key called the session key.
+
+All of these are encrypted with the KDC's private key, so the client never sees the content of the TGT.
+The KDC then sends a packet with a TGT and another copy of the session key which is encrypted with the user's 
+key which is encrupted with the user's private key.
+
+The client uses its private key based on his password to decrypt the service key. (service and session key must be the same)
+
+When the client wants to open a service, it creates an authenticator:
+-user name
+-client's ip
+-time
+and it encrypts this authenticator with the session key that it just received 
+
+
+				
 
 
 

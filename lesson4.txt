@@ -24,4 +24,65 @@ Avro is a data serialisation and RPC(Remote Procedure Call) library
 The schema is included in the file
 They use synchronisation Mappers
 
+p.41/92
+Input Splits my span over blocks.
+Inut SPlit size = max(minSize,min(maxSize,BlockSize))
+p.37
+Custom RecordReader to read records that span InputSplits
+
+A record is read  until a new line offset is found. (ex.310)
+If a record doensn't have a line offset(ex. shake...), the mapper skips the client and goes to the next one.
+   
+01:07 explained exercise
+
+p.74 Combiner:
+it can be launched evey time there is a spil to the disk
+
+New Slide: MAPREDUCE API/ IO
+p.1 of 22
+setup() runs first before the map method of the mapper
+and at the end: before closing the jvm of the mapper, the teardown() runs
+
+Combiner:
+does not always run for each mapper
+The application master: keeps track of the tasks and if one is slow it launches the same job at another node, maybe in the same rack
+Speculative execution: run two times the mapper and keep the one that finishes first
+
+If the jvm of the mapper crashes, your combiner has already launched
+If the jvm crashes, the intermediate output is disregarded 
+For the second jvm that is running , we do see the combiner output
+
+p.11
+COmbiner is invoked when data is spilled from map buffer to disk, after partitioning, sorting.
+When map wants to merge spill files together
+When we have data spilled in reducer.
+
+p13.
+Use FileSyystem API by creating FileSystem object in order to read or write 'side' files
+not the standard input/output files
+This system is available for: mappers,reducers,drivers
+
+Make sure you have deleted the output folder before rewriting
+otherwise it will not run.
+
+p.17: DIstributed Cache
+If you have a small file and you want it in all nodes, you have shared resources which are copied in all nodes.
+Each Application masters launches a few containers,
+take the code and launch the job.
+
+If we hadn't used distributed cache, we would have to acces a file from hdfs with SystemFile API and each map logic has to open System API and it would have good performance.
+
+In the driver class write:
+DistributedCache.adddFileToClasspath(new Path("myapp/jar"),conf);
+
+p19 SOS
+
+
+
+
+
+
+
+
+
 

@@ -1,0 +1,11 @@
+github.com/abajwa-hw/security
+
+ranger:
+
+ambari can integrate with ambari ldap
+
+Who manages the a
+
+hortonwords.com/hadoop
+
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/SSSD-Introduction.html
